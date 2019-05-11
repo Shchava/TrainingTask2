@@ -46,4 +46,14 @@ public class testSocket {
         testSocket.plugIn(newConsumer);
         assertEquals(3,testSocket.getUsedPower());
     }
+
+    @Test
+    void testWastePower(){
+        Socket wasteSocket = new Socket(10);
+        wasteSocket.plugIn(testConsumer);
+        assertEquals(35,wasteSocket.getUsedPower());
+
+        testConsumer.setTurnedOn(false);
+        assertEquals(0,wasteSocket.getUsedPower());
+    }
 }

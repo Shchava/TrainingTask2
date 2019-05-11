@@ -31,7 +31,7 @@ public class Socket{
     }
 
     public int getUsedPower(){
-        if(pluggedIn == null){
+        if(pluggedIn == null || pluggedIn.getPower() == 0){
             return 0;
         }else{
             return pluggedIn.getPower() + wastePower;
