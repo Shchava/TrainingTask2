@@ -31,10 +31,19 @@ public class testSocket {
             testSocket.plugIn(newConsumer);
         });
 
+
+    }
+
+    @Test
+    void testPlugOut(){
+        testSocket.plugIn(testConsumer);
+        ElectricityConsumer pulled = testSocket.plugOut();
+
+        assertEquals(pulled, testConsumer);
+        ElectricityConsumer newConsumer = new ElectricityConsumer("test2",3);
         newConsumer.setTurnedOn(true);
         testSocket.plugOut();
         testSocket.plugIn(newConsumer);
         assertEquals(3,testSocket.getUsedPower());
     }
-
 }
