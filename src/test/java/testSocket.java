@@ -31,5 +31,10 @@ public class testSocket {
             testSocket.plugIn(newConsumer);
         });
 
+        newConsumer.setTurnedOn(true);
+        testSocket.plugOut();
+        testSocket.plugIn(newConsumer);
+        assertEquals(3,testSocket.getUsedPower());
     }
+
 }
