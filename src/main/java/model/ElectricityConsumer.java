@@ -22,4 +22,8 @@ public class ElectricityConsumer {
     public void setTurnedOn(boolean turnedOn) {
         this.turnedOn = turnedOn;
     }
+
+    public int getPower(){
+        return turnedOn ? power : 0;
+    }
 }
