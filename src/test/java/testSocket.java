@@ -22,4 +22,14 @@ public class testSocket {
         testSocket.plugIn(testConsumer);
         assertEquals(25,testSocket.getUsedPower());
     }
+
+    @Test()
+    void testMultipleConnect(){
+        testSocket.plugIn(testConsumer);
+        ElectricityConsumer newConsumer = new ElectricityConsumer("test2",3);
+        assertThrows(IllegalStateException.class, () -> {
+            testSocket.plugIn(newConsumer);
+        });
+
+    }
 }

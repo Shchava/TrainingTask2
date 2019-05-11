@@ -13,7 +13,11 @@ public class Socket{
 
 
     public void plugIn(ElectricityConsumer device){
-        this.pluggedIn = device;
+        if(this.pluggedIn == null){
+            this.pluggedIn = device;
+        }else{
+            throw new IllegalStateException("Socket already has plugged device" + device);
+        }
     }
 
     public ElectricityConsumer getPluggedIn() {
