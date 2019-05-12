@@ -39,7 +39,8 @@ public class testSocket {
     @Test
     void testPlugOut(){
         testSocket.plugIn(testConsumer);
-        ElectricityConsumer pulled = testSocket.plugOut();
+        ElectricityConsumer pulled = testSocket.getPluggedInConsumer();
+        testSocket.plugOut();
 
         assertEquals(pulled, testConsumer);
         ElectricityConsumer newConsumer = new ElectricityConsumer("test2",3);

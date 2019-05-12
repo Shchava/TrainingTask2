@@ -1,7 +1,7 @@
 package model;
 
 public class Socket{
-    private ElectricityConsumer pluggedIn;
+    private Object pluggedIn;
     private int wastePower;
 
     public Socket() {
@@ -20,22 +20,19 @@ public class Socket{
         }
     }
 
-    public ElectricityConsumer getPluggedIn() {
-        return pluggedIn;
+    public ElectricityConsumer getPluggedInConsumer() {
+        return (ElectricityConsumer) pluggedIn;
     }
 
-    public  ElectricityConsumer plugOut(){
-        ElectricityConsumer res = pluggedIn;
+    public void plugOut(){
         pluggedIn = null;
-        return  res;
     }
 
     public int getUsedPower(){
-        if(pluggedIn == null || pluggedIn.getPower() == 0){
+        if(pluggedIn == null || ((ElectricityConsumer)pluggedIn).getPower() == 0){
             return 0;
         }else{
-            return pluggedIn.getPower() + wastePower;
+            return ((ElectricityConsumer)pluggedIn).getPower() + wastePower;
         }
     }
-
 }
