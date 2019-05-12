@@ -29,7 +29,7 @@ public class Socket implements ConnectAbleNetworkPart{
     }
 
     public Object getPluggedInDevice() {
-        return (ElectricityConsumer) pluggedIn;
+        return pluggedIn;
     }
 
     public void plugOut(){
