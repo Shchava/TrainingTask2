@@ -1,5 +1,7 @@
 package model;
 
+import java.util.*;
+
 public class Socket implements ConnectAbleNetworkPart{
     private Object pluggedIn;
     private int wastePower;
@@ -41,6 +43,15 @@ public class Socket implements ConnectAbleNetworkPart{
             return 0;
         }else{
             return getPowerOfPlugged() + wastePower;
+        }
+    }
+
+    @Override
+    public List<ConnectAbleNetworkPart> getConnectedParts() {
+        if(pluggedIn instanceof ConnectAbleNetworkPart) {
+            return Collections.singletonList((ConnectAbleNetworkPart) pluggedIn);
+        }else{
+            return Collections.EMPTY_LIST;
         }
     }
 

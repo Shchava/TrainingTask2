@@ -66,4 +66,14 @@ public class testSocket {
 
         assertEquals(25+3,testSocket.getUsedPower());
     }
+
+    @Test
+    void getConnectedParts(){
+        Socket anotherSocket = new Socket(3);
+        anotherSocket.plugIn(testConsumer);
+        testSocket.plugIn(anotherSocket);
+
+        assertEquals(anotherSocket,testSocket.getConnectedParts().get(0));
+        assertEquals(0,anotherSocket.getConnectedParts().size());
+    }
 }
