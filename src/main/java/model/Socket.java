@@ -13,14 +13,14 @@ public class Socket implements ConnectAbleNetworkPart{
 
 
     public void plugIn(ElectricityConsumer device){
-        if(this.pluggedIn == null){
-            this.pluggedIn = device;
-        }else{
-            throw new IllegalStateException("Socket already has plugged device" + pluggedIn);
-        }
+        plugIn((Object)device);
     }
 
     public void plugIn(ConnectAbleNetworkPart device){
+        plugIn((Object)device);
+    }
+
+    private void plugIn(Object device){
         if(this.pluggedIn == null){
             this.pluggedIn = device;
         }else{
