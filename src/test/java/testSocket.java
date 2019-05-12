@@ -1,9 +1,7 @@
 import model.ElectricityConsumer;
 import model.Socket;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.condition.DisabledIf;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -39,7 +37,7 @@ public class testSocket {
     @Test
     void testPlugOut(){
         testSocket.plugIn(testConsumer);
-        ElectricityConsumer pulled = (ElectricityConsumer) testSocket.getPluggedInConsumer();
+        ElectricityConsumer pulled = (ElectricityConsumer) testSocket.getPluggedInDevice();
         testSocket.plugOut();
 
         assertEquals(pulled, testConsumer);

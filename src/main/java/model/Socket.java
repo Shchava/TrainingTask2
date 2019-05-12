@@ -28,7 +28,7 @@ public class Socket implements ConnectAbleNetworkPart{
         }
     }
 
-    public Object getPluggedInConsumer() {
+    public Object getPluggedInDevice() {
         return (ElectricityConsumer) pluggedIn;
     }
 
