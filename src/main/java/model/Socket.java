@@ -1,6 +1,6 @@
 package model;
 
-public class Socket{
+public class Socket implements ConnectAbleNetworkPart{
     private Object pluggedIn;
     private int wastePower;
 
@@ -20,6 +20,13 @@ public class Socket{
         }
     }
 
+    public void plugIn(ConnectAbleNetworkPart device){
+        if(this.pluggedIn == null){
+            this.pluggedIn = device;
+        }else{
+            throw new IllegalStateException("Socket already has plugged device" + pluggedIn);
+        }
+    }
 
     public ElectricityConsumer getPluggedInConsumer() {
         return (ElectricityConsumer) pluggedIn;

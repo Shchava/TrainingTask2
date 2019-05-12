@@ -65,7 +65,7 @@ public class testSocket {
     void testConnectNetworkPart(){
         Socket anotherSocket = new Socket(3);
         anotherSocket.plugIn(testConsumer);
-        //testSocket.plugIn(anotherSocket);
+        testSocket.plugIn(anotherSocket);
 
         assertEquals(25+3,testSocket.getUsedPower());
     }
