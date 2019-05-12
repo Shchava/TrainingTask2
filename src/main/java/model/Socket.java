@@ -28,7 +28,7 @@ public class Socket implements ConnectAbleNetworkPart{
         }
     }
 
-    public ElectricityConsumer getPluggedInConsumer() {
+    public Object getPluggedInConsumer() {
         return (ElectricityConsumer) pluggedIn;
     }
 
@@ -43,6 +43,7 @@ public class Socket implements ConnectAbleNetworkPart{
             return getPowerOfPlugged() + wastePower;
         }
     }
+
     private int getPowerOfPlugged(){
         if(pluggedIn instanceof ElectricityConsumer){
             return ((ElectricityConsumer) pluggedIn).getPower();
