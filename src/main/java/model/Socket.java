@@ -37,7 +37,7 @@ public class Socket implements ConnectAbleNetworkPart{
     }
 
     public int getUsedPower(){
-        if(pluggedIn == null || ((ElectricityConsumer)pluggedIn).getPower() == 0){
+        if(pluggedIn == null || getPowerOfPlugged() == 0){
             return 0;
         }else{
             return getPowerOfPlugged() + wastePower;
