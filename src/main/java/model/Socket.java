@@ -16,9 +16,10 @@ public class Socket{
         if(this.pluggedIn == null){
             this.pluggedIn = device;
         }else{
-            throw new IllegalStateException("Socket already has plugged device" + device);
+            throw new IllegalStateException("Socket already has plugged device" + pluggedIn);
         }
     }
+
 
     public ElectricityConsumer getPluggedInConsumer() {
         return (ElectricityConsumer) pluggedIn;
