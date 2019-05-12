@@ -40,7 +40,14 @@ public class Socket implements ConnectAbleNetworkPart{
         if(pluggedIn == null || ((ElectricityConsumer)pluggedIn).getPower() == 0){
             return 0;
         }else{
-            return ((ElectricityConsumer)pluggedIn).getPower() + wastePower;
+            return getPowerOfPlugged() + wastePower;
+        }
+    }
+    private int getPowerOfPlugged(){
+        if(pluggedIn instanceof ElectricityConsumer){
+            return ((ElectricityConsumer) pluggedIn).getPower();
+        }else{
+            return ((ConnectAbleNetworkPart)pluggedIn).getUsedPower();
         }
     }
 }

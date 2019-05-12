@@ -60,7 +60,6 @@ public class testSocket {
         assertEquals(0,wasteSocket.getUsedPower());
     }
 
-    @Disabled
     @Test
     void testConnectNetworkPart(){
         Socket anotherSocket = new Socket(3);
