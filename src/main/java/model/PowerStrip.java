@@ -19,5 +19,11 @@ public class PowerStrip {
         return sockets;
     }
 
-
+    public int getUsedPower(){
+        int power = 0;
+        for(ConnectAbleNetworkPart p:sockets){
+            power += p.getUsedPower();
+        }
+        return power;
+    }
 }
