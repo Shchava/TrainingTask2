@@ -24,6 +24,7 @@ public class Controller {
     }
 
     private void doMainActions(){
-      //  view.printTotalPower(model.getTotalPower());
+        model.DefaultInitialization();
+        view.printTotalPower(model.getTotalPower());
     };
 }

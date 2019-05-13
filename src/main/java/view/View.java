@@ -17,4 +17,9 @@ public class View {
         String message = String.format(messages.getString("continueInvitation"),messages.getString("continue"));
         print(message);
     }
+
+    public void printTotalPower(int totalPower){
+        String message = String.format(messages.getString("printTotalPower"),totalPower);
+        print(message);
+    }
 }
