@@ -1,4 +1,15 @@
 package view;
 
+import java.util.ResourceBundle;
+
 public class View {
+    public static final String MESSAGES_BUNDLE_NAME = "Messages";
+    public static final String DEVICES_NAMES_BUNDLE_NAME = "Devices";
+
+    public ResourceBundle messages = ResourceBundle.getBundle(MESSAGES_BUNDLE_NAME);
+    public ResourceBundle devicesNames = ResourceBundle.getBundle(DEVICES_NAMES_BUNDLE_NAME);
+
+    public void print(String message){
+        System.out.println(message);
+    }
 }
