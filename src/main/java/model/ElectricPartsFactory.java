@@ -10,4 +10,8 @@ public interface ElectricPartsFactory {
     PowerLine createPowerLine();
 
     ElectricityConsumer createElectricityConsumer(String name, int power);
+
+    public static ElectricPartsFactory getInstance(){
+        return new StandardElectricPartsFactory();
+    }
 }
