@@ -28,6 +28,7 @@ public enum DefaultValues {
         laptop1.setTurnedOn(true);
         ps1.plugIn(radio1);
         ps1.plugIn(laptop1);
+        powerLine1.plugIn(ps1);
 
         lines.add(powerLine1);
     }

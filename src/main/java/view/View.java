@@ -1,5 +1,7 @@
 package view;
 
+import model.ConnectAbleNetworkPart;
+
 import java.util.ResourceBundle;
 
 public class View {
@@ -20,6 +22,11 @@ public class View {
 
     public void printTotalPower(int totalPower){
         String message = String.format(messages.getString("printTotalPower"),totalPower);
+        print(message);
+    }
+
+    public void printPart(ConnectAbleNetworkPart part,int power){
+        String message = String.format(messages.getString("printPart"),devicesNames.getString(part.toString()),power);
         print(message);
     }
 }
