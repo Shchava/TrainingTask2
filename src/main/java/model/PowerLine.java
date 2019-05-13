@@ -17,4 +17,12 @@ public class PowerLine {
     public List<ConnectAbleNetworkPart> getConnectedParts(){
         return connected;
     }
+
+    public int getUsedPower(){
+        int power = 0;
+        for(ConnectAbleNetworkPart c: connected){
+            power += c.getUsedPower();
+        }
+        return power;
+    }
 }

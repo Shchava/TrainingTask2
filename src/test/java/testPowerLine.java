@@ -1,3 +1,4 @@
+import model.ElectricityConsumer;
 import model.PowerLine;
 import model.PowerStrip;
 import model.Socket;
@@ -16,7 +17,9 @@ public class testPowerLine {
     @BeforeEach
     void init(){
         testLine = new PowerLine();
-
+        socket1 = new Socket();
+        socket2 = new Socket();
+        strip1 = new PowerStrip(2);
     }
 
     @Test
@@ -32,6 +35,27 @@ public class testPowerLine {
         assertEquals(2,testLine.getConnectedParts().size());
         assertTrue(testLine.getConnectedParts().contains(socket1));
         assertTrue(testLine.getConnectedParts().contains(strip1));
+    }
+
+    @Test
+    void testGetUsedPower(){
+        ElectricityConsumer ec1 = new ElectricityConsumer("test",20);
+        ElectricityConsumer ec2 = new ElectricityConsumer("test2",40);
+        ElectricityConsumer ec3 = new ElectricityConsumer("test3",50);
+
+        socket1.plugIn(ec1);
+        ec1.setTurnedOn(true);
+
+        strip1.plugIn(ec2);
+        strip1.plugIn(ec3);
+        ec2.setTurnedOn(true);
+        ec3.setTurnedOn(true);
+
+        testLine.plugIn(socket1);
+        testLine.plugIn(socket2);
+        testLine.plugIn(strip1);
+
+        assertEquals(110,testLine.getUsedPower());
     }
 
 }
