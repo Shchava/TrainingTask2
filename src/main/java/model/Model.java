@@ -2,20 +2,23 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Model {
-    List<PowerLine> lines;
+    List<PowerLine> powerLines;
 
     public Model(){
-        lines = new ArrayList<>();
+        powerLines = new ArrayList<>();
     }
 
     public void DefaultInitialization(){
-        lines.addAll(DefaultValues.Default.lines);
+        powerLines.addAll(DefaultValues.Default.lines);
     }
 
     public int getTotalPower(){
-        return lines.stream().mapToInt(PowerLine::getUsedPower).sum();
+        return powerLines.stream().mapToInt(PowerLine::getUsedPower).sum();
+    }
+
+    public List<PowerLine> getPowerLines() {
+        return powerLines;
     }
 }
