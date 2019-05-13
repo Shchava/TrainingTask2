@@ -53,4 +53,12 @@ public class testPowerStrip {
         testStrip.plugIn(insert2);
         assertEquals(37,testStrip.getUsedPower());
     }
+
+    @Test
+    void testPlugInConsumer(){
+        testStrip.plugIn(ec1);
+        assertEquals(10,testStrip.getUsedPower());
+        testStrip.plugIn(ec2);
+        assertEquals(30,testStrip.getUsedPower());
+    }
 }

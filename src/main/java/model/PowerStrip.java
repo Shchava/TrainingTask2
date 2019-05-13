@@ -40,4 +40,14 @@ public class PowerStrip {
         }
         throw new IllegalStateException("no root to insert new device");
     }
+
+    public void plugIn(ElectricityConsumer device){
+        for(Socket p:sockets){
+            if(p.getPluggedInDevice() == null){
+                p.plugIn(device);
+                return;
+            }
+        }
+        throw new IllegalStateException("no root to insert new device");
+    }
 }
