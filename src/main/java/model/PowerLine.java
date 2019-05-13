@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PowerLine {
+public class PowerLine implements ConnectAbleNetworkPart{
     private List<ConnectAbleNetworkPart> connected;
 
     public PowerLine(){
