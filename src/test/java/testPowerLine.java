@@ -24,4 +24,14 @@ public class testPowerLine {
         testLine.plugIn(socket1);
     }
 
+    @Test
+    void testGetConnectedParts(){
+        testLine.plugIn(socket1);
+        testLine.plugIn(strip1);
+
+        assertEquals(2,testLine.getConnectedParts().size());
+        assertTrue(testLine.getConnectedParts().contains(socket1));
+        assertTrue(testLine.getConnectedParts().contains(strip1));
+    }
+
 }

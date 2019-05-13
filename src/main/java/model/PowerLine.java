@@ -14,4 +14,7 @@ public class PowerLine {
         connected.add(device);
     }
 
+    public List<ConnectAbleNetworkPart> getConnectedParts(){
+        return connected;
+    }
 }
