@@ -12,4 +12,9 @@ public class View {
     public void print(String message){
         System.out.println(message);
     }
+
+    public void printContinueInvitation(){
+        String message = String.format(messages.getString("continueInvitation"),messages.getString("continue"));
+        print(message);
+    }
 }

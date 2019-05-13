@@ -17,6 +17,13 @@ public class Controller {
     }
 
     public void process(){
-
+        do{
+            doMainActions();
+            view.printContinueInvitation();
+        }while(sc.nextLine().equals(view.messages.getString("continue")));
     }
+
+    private void doMainActions(){
+      //  view.printTotalPower(model.getTotalPower());
+    };
 }
