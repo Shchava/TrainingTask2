@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PowerStrip {
+public class PowerStrip implements ConnectAbleNetworkPart{
     private List<Socket> sockets;
     private final int numberOfSockets;
 
