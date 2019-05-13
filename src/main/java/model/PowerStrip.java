@@ -5,6 +5,7 @@ import java.util.List;
 
 public class PowerStrip implements ConnectAbleNetworkPart{
     private List<Socket> sockets;
+    private int wastePower;
     private final int numberOfSockets;
 
     public PowerStrip(int numberOfSockets){
@@ -13,6 +14,11 @@ public class PowerStrip implements ConnectAbleNetworkPart{
         for(int i =0; i < numberOfSockets;i++){
             sockets.add(new Socket());
         }
+    }
+
+    public PowerStrip(int numberOfSockets,int wastePower){
+        this(numberOfSockets);
+        this.wastePower = wastePower;
     }
 
     public List<Socket> getConnectedParts() {
@@ -24,7 +30,7 @@ public class PowerStrip implements ConnectAbleNetworkPart{
         for(ConnectAbleNetworkPart p:sockets){
             power += p.getUsedPower();
         }
-        return power;
+        return power == 0 ? 0 : power + wastePower;
     }
 
     public int getNumberOfSockets() {

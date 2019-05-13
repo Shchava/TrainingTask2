@@ -61,4 +61,25 @@ public class testPowerStrip {
         testStrip.plugIn(ec2);
         assertEquals(30,testStrip.getUsedPower());
     }
+
+    @Test
+    void testWastePowerStrip(){
+        PowerStrip wasteStrip = new PowerStrip(3,20);
+        assertEquals(0,wasteStrip.getUsedPower());
+
+        wasteStrip.plugIn(ec3);
+        wasteStrip.plugIn(ec2);
+        assertEquals(70,wasteStrip.getUsedPower());
+    }
+
+    @Test
+    void testToManyInserts(){
+        testStrip = new PowerStrip(2);
+        testStrip.plugIn(ec1);
+        testStrip.plugIn(ec2);
+        assertThrows(IllegalStateException.class,()->{
+            testStrip.plugIn(ec3);
+        });
+
+    }
 }
