@@ -11,7 +11,7 @@ public interface ElectricPartsFactory {
 
     ElectricityConsumer createElectricityConsumer(String name, int power);
 
-    public static ElectricPartsFactory getInstance(){
+    static ElectricPartsFactory getInstance(){
         return new StandardElectricPartsFactory();
     }
 }
