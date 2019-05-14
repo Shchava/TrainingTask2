@@ -56,4 +56,9 @@ public class PowerStrip implements ConnectAbleNetworkPart{
         }
         throw new IllegalStateException("no root to insert new device");
     }
+
+    @Override
+    public String toString() {
+        return "PowerStrip";
+    }
 }

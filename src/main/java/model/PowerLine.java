@@ -25,4 +25,9 @@ public class PowerLine implements ConnectAbleNetworkPart{
         }
         return power;
     }
+
+    @Override
+    public String toString() {
+        return "PowerLine";
+    }
 }

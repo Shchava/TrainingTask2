@@ -62,4 +62,9 @@ public class Socket implements ConnectAbleNetworkPart{
             return ((ConnectAbleNetworkPart)pluggedIn).getUsedPower();
         }
     }
+
+    @Override
+    public String toString() {
+        return "Socket";
+    }
 }
