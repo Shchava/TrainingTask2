@@ -1,9 +1,6 @@
 package controller;
 
-import model.ConnectAbleNetworkPart;
-import model.Model;
-import model.PowerLine;
-import model.Socket;
+import model.*;
 import view.View;
 
 import java.util.List;
@@ -40,13 +37,20 @@ public class Controller {
         } else {
             view.printPart(part,part.getUsedPower(), offset);
             List<? extends ConnectAbleNetworkPart> connects = part.getConnectedParts();
-            if(connects.size() > 0){
                 connects.forEach(l->printNetworkParts(l,offset + 1));
-            }
         }
     }
 
     private void printSocket(Socket socket,int offset){
         view.printPart(socket,socket.getUsedPower(), offset);
+        Object connected = socket.getPluggedInDevice();
+        if(connected != null) {
+            if (connected instanceof ConnectAbleNetworkPart) {
+                view.printPart((ConnectAbleNetworkPart) connected, ((ConnectAbleNetworkPart) connected).getUsedPower(), offset + 1);
+            } else {
+                ElectricityConsumer ec = (ElectricityConsumer) connected;
+                view.printElectricityConsumer(ec.getName(), ec.getPower(), ec.isTurnedOn(), offset + 1);
+            }
+        }
     }
 }

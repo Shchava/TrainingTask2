@@ -28,8 +28,13 @@ public class View {
     }
 
     public void printPart(ConnectAbleNetworkPart part,int power, int offset){
-        //messages.getString("printPart")
         String message = String.format(messages.getString("printPart"),createOffset(offset),devicesNames.getString(part.toString()),power);
+        print(message);
+    }
+
+    public void printElectricityConsumer(String name, int power, boolean isTurnedOn,int offset){
+        String turned = isTurnedOn ? messages.getString("turnedOn") : messages.getString("turnedOff");
+        String message = String.format(messages.getString("printConsumer"),createOffset(offset),devicesNames.getString(name),turned,power);
         print(message);
     }
 
