@@ -31,23 +31,22 @@ public class Controller {
         model.DefaultInitialization();
         view.printTotalPower(model.getTotalPower());
         List<PowerLine> powerLines = model.getPowerLines();
-        powerLines.forEach(this::printNetworkParts);
+        powerLines.forEach(l->printNetworkParts(l,0));
     };
 
-    private void printNetworkParts(ConnectAbleNetworkPart part) {
+    private void printNetworkParts(ConnectAbleNetworkPart part,int offset) {
         if (part instanceof Socket) {
-            printSocket((Socket)part);
+            printSocket((Socket)part, offset);
         } else {
-            view.printPart(part,part.getUsedPower());
+            view.printPart(part,part.getUsedPower(), offset);
             List<? extends ConnectAbleNetworkPart> connects = part.getConnectedParts();
             if(connects.size() > 0){
-                connects.forEach(this::printNetworkParts);
+                connects.forEach(l->printNetworkParts(l,offset + 1));
             }
-
         }
     }
 
-    private void printSocket(Socket socket){
-        view.printPart(socket,socket.getUsedPower());
+    private void printSocket(Socket socket,int offset){
+        view.printPart(socket,socket.getUsedPower(), offset);
     }
 }

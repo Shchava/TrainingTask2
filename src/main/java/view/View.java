@@ -8,6 +8,8 @@ public class View {
     public static final String MESSAGES_BUNDLE_NAME = "Messages";
     public static final String DEVICES_NAMES_BUNDLE_NAME = "Devices";
 
+    public static int OFFSET_WIDTH = 3;
+
     public ResourceBundle messages = ResourceBundle.getBundle(MESSAGES_BUNDLE_NAME);
     public ResourceBundle devicesNames = ResourceBundle.getBundle(DEVICES_NAMES_BUNDLE_NAME);
 
@@ -25,8 +27,13 @@ public class View {
         print(message);
     }
 
-    public void printPart(ConnectAbleNetworkPart part,int power){
-        String message = String.format(messages.getString("printPart"),devicesNames.getString(part.toString()),power);
+    public void printPart(ConnectAbleNetworkPart part,int power, int offset){
+        //messages.getString("printPart")
+        String message = String.format(messages.getString("printPart"),createOffset(offset),devicesNames.getString(part.toString()),power);
         print(message);
+    }
+
+    private String createOffset(int offset){
+        return new String(new char[OFFSET_WIDTH * offset]).replace('\0', ' ');
     }
 }
